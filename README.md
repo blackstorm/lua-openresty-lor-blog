@@ -25,7 +25,6 @@
 lua-blog/config$ config.lua
 
 ```
-inf2@bogon:~/Documents/lua-workspace/
 return{
   page_config = {
     post_page_size = 10
