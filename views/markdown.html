@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Markdown</title>
+	<script type="text/javascript" src="/static/js/marked.js"></script>
+    <script type="text/javascript" src="/static/js/editor.js"></script>
+    <link rel="stylesheet" href="/static/css/editor.css" />
+     <style type="text/css">
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: #f9f9f7;
+      }
+      .editor-wrapper {
+        max-width: 680px;
+        padding: 10px;
+        margin: 60px auto;
+      }
+      input[type="submit"] {
+      	height: 24px;
+      	border: none;
+      	color:white;
+      	width: 100%;
+      	background: #C9C9C8;
+      }
+      input[type="submit"]:hover{
+      	color:#333;
+      	background: #7E8993;
+      }
+      .message{
+      	width:100%; position:absolute; bottom:0; text-align:center;
+      	background-color: #FFA;
+      	color: #333;
+      }
+    </style>
+</head>
+<body>
+	{% if message then %}
+		<span class="message">
+			{{message}}
+		</span>
+	{% end %}
+	<form action="/markdown" method="POST">
+		<div class="editor-wrapper">
+	      <input class="title" type="text" placeholder="title" name="title" />
+	      <textarea id="editor" name="content"></textarea>
+	      <input type="submit" value="Submit"></input>
+	    </div>
+	</form>
+     <script type="text/javascript">
+     	new Editor({
+  			element: document.getElementById('editor')
+		})
+    </script>
+</body>
+</html>

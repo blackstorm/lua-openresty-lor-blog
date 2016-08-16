@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/static/css/highlight.css" type="text/css" />
+</head>
+<style>
+  input[type="text"],input[type="password"] {
+    height: 45px;
+  }
+  input[type="submit"] {
+    padding: 10px;
+    display: block;
+  }
+      .message{
+        width:100%; position:absolute; bottom:0; text-align:center;
+        background-color: #FFA;
+        color: #333;
+      }
+</style>
+<body>
+  {% if message then %}
+    <span class="message">
+      {{message}}
+    </span>
+  {% end %}
+<div id="container">
+      <div id="main" role="main">
+        <header>
+          <h1>Login</h1>
+        </header>
+        {(nav.html)}
+        <article class="content">
+          <form action="/inf2" method="POST">
+            <input type="text" placeholder="username" name="name" />
+            <input type="password" placeholder="password" name="password" />
+            <input type="submit" value="submit" />
+          </form>
+        </article>
+      </div>
+      {(footer.html)}
+</div>
+</body>
+</html>

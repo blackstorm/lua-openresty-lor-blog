@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>utf-8.live</title>
+  <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+</head>
+<body>
+<div id="container">
+      <div id="main" role="main">
+        <header>
+          <h1>utf-8.live Homepage</h1>
+        </header>
+        {(nav.html)}
+        <article class="content">
+          <section class="post">
+            <ul class="listing">
+              {% for _,p in ipairs(posts) do %}
+                <li class="listing-item">
+                  <time datetime="{{p.created}}">{{p.created}}</time>
+                  <a href="/post/{{p.id}}" title="{{p.title}}">{{p.title}}</a>
+                </li>
+              {% end %}
+            </ul>
+          </section>
+        </article>
+      </div>
+      {(footer.html)}
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>{{post.title}}</title>
+  <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/static/css/highlight.css" type="text/css" />
+</head>
+<body>
+<div id="container">
+      <div id="main" role="main">
+        <header>
+          <h1>{{post.title}}</h1>
+        </header>
+        {(nav.html)}
+        <article class="content">
+        	<section class="meta">
+			<span class="time">
+			  <time datetime="{{post.created}}">{{post.created}}</time>
+			</span>
+		</section>
+		<section class="post" id="post">{{post.content}}</section>
+		<div id="disqus_thread"></div>
+        </article>
+      </div>
+      {(footer.html)}
+</div>
+<script src="/static/js/marked.js"></script>
+<script type="text/javascript">
+  var m = document.getElementById("post")
+  m.innerHTML = marked(m.innerHTML)
+</script>
+{(disqus.html)}
+</body>
+</html>
